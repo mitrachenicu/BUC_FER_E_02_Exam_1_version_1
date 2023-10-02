@@ -1,0 +1,19 @@
+@use "sass:color";
+
+$baseColor: #2325b8;
+$secondColor: lighten($baseColor, 30%);
+$thirdColor: darken($baseColor, 40%);
+
+.section-1{
+    border: $baseColor 5px solid;
+
+}
+.section-2{
+    border: $secondColor 5px solid;
+
+}
+.section-3{
+    border: $thirdColor 5px solid;
+
+}
+ 

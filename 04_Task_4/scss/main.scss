@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "sass:list";
+
+$colors: (RoyalBlue: #0A2463,
+RedSalsa: #FB3640,
+GraniteGray: #605F5E,
+CGBlue: #247BA0,
+KeyLime: #EAF27C,
+DarkPurple: #370031,
+BrickRed: #CE4760,
+CadmiumOrange: #F28F3B,
+SteelTeal: #588B8B,
+Bluetiful: #446DF6,
+Peach: #FECDAA,
+OliveDrab: #392A16);
+
+$columns: 12;
+$colorsKeys: map.keys($colors);
+
+@function getKey($index) {
+  @return list.nth($list: $colorsKeys, $n: $index);
+}
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    min-height: 1px;
+    width: 100%;
+    height: 50px;
+    background-color: map.get($map: $colors, $key: getKey($i));
+
+    @media screen and (min-width: 600px) {
+      height: 300px;
+      width: calc(100% / $columns);
+    }
+  }
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cotainer{
+    width: 100%;
+    max-width: 990px;
+    margin: 0 auto;
+    padding: 15px;
+
+}
